@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" /> <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height" /><link rel="stylesheet" type="text/css" href="css/reset.css" /><link rel="stylesheet" type="text/css" href="css/portrait.css" media="only screen and (orientation:portrait)" /> <title>iLekvár</title> <script type="text/javascript" src="phonegap.js"></script> <script type="text/javascript" src="facebook-js-sdk.js"></script> <script type="text/javascript" src="cdv-plugin-fb-connect.js"></script> <script type="text/javascript" src="EmailComposer.js"></script> <script type="text/javascript" src="js/index.js"></script> <script type="text/javascript" src="js/hammer.min.js"></script> <script type="text/javascript" src="js/iscroll-lite.js"></script> <script type="text/javascript" src="js/ajax.js"></script> <script type="text/javascript">
+app.initialize();
+</script> </head><body onload="app.onDeviceReady();"><div id="fb-root"></div> <script>(function(d, s, id){
+var js, fjs=d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js=d.createElement(s);js.id=id;
+js.src="//connect.facebook.net/hu_HU/all.js#xfbml=1&appId=529520623830569";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script> <div id="REKLAM_WAIT"></div><div id="REKLAM" class="oldal"> <img id="REKLAMKEP" src="" ontouchstart="ReklamOFF(true);"/><div id="REKLAM_TOVABB" ontouchstart="ReklamOFF(true);">Tovább Az én lekváromra</div></div><div id="Oldal0" class="oldal" style="display:block;z-index:0; position:absolute;top:0;left:0;"><img class="fologo" src="img/fologo.jpg" /><div class="fooldal">
+<img class="oldalsav" src="img/oldalsav1.jpg" /><div id="POROND0" class="porond">
+</div></div>
+<img class="oldalsav" src="img/oldalsav2.jpg" /></div></div><div id="Oldal1" class="oldal" style="display:none;"> 
+<img class="fologo" src="img/fologo.jpg" /><div class="fooldal">
+<img class="oldalsav" src="img/oldalsav1.jpg" /><div id="POROND1" class="porond"><div id="SCROLLER1" class="scroller">
+<img src="img/fooldal.jpg" style="width:100%;height:100%;"/><div id="KAT1" class="kat" style="top:0%;left:0%;width:50%;height:27%;"></div><div id="KAT2" class="kat" style="top:0%;left:50%;width:50%;height:27%;"></div><div id="KAT3" class="kat" style="top:27%;left:0%;width:50%;height:27%;"></div><div id="KAT4" class="kat" style="top:27%;left:50%;width:50%;height:27%;"></div><div id="KAT5" class="kat" style="top:54%;left:0%;width:50%;height:27%;"></div><div id="KAT6" class="kat" style="top:54%;left:50%;width:50%;height:27%;"></div></div></div>
+<img class="oldalsav" src="img/oldalsav2.jpg" /></div>
+<div id="LABLEC1" class="lablec">
+</div></div><div id="Oldal2" class="oldal" style="display:none;"> <img class="fologo" src="img/kislogo.jpg" />
+<img id="CSIK2" class="csik" src="img/fejlec2.jpg" ontouchstart="javascript:Vissza();"/><div class="fooldal">
+<img class="oldalsav" src="img/oldalsav1.jpg" /><div id="POROND2" class="porond" style="overflow:hidden;"><div id="SCROLLER2" class="scroller" style=""><div class="keres">
+<input id="KERES" class="bevitel" type="text" maxlength="20" onkeypress="KeresesEnter(event);" onfocus="this.select();"/></div>
+<img id="KERES_GOMB" class="kereses_ikon" src="img/kereses.png" ontouchstart="Kereses(document.getElementById('KERES').value);" /><div class="kereses_ido_label">Elkészítési idő szerint :</div><div id="KERESES_IDO"><div id="ISZ1" class="idoszakasz" style="left:1%"></div><div id="ISZ2" class="idoszakasz" style="left:20%"></div><div id="ISZ3" class="idoszakasz" style="left:39%"></div><div id="ISZ4" class="idoszakasz" style="left:58%"></div><div id="ISZ5" class="idoszakasz" style="left:77%"></div><div id="ISZ6" class="idoszakasz" style="left:96%"></div><div id="CSUSZKA1" class="csuszka"></div>
+<img id="GOLYO1" class="golyo" src="img/ora.png" /><div id="IDOVONAL1" class="idovonal"><div ontouchstart="Skala(1,0);" class="idosav"></div><div ontouchstart="Skala(1,1);" class="idosav"></div><div ontouchstart="Skala(1,2);" class="idosav"></div><div ontouchstart="Skala(1,3);" class="idosav"></div><div ontouchstart="Skala(1,4);" class="idosav"></div><div ontouchstart="Skala(1,5);" class="idosav"></div></div></div><div id="SKALA1" class="skala"><div class="skala_szoveg"><10 perc</div><div class="skala_szoveg">20 perc</div><div class="skala_szoveg">30 perc</div><div class="skala_szoveg">1 óra</div><div class="skala_szoveg">2 óra</div><div class="skala_szoveg" style="color:#d37119;">Mindegy</div></div><div class="kereses_fok_label">Nehézségi fok szerint :</div><div id="KERESES_FOK"><div id="FSZ1" class="idoszakasz" style="left:1%"></div><div id="FSZ2" class="idoszakasz" style="left:33%"></div><div id="FSZ3" class="idoszakasz" style="left:64%"></div><div id="FSZ4" class="idoszakasz" style="left:96%"></div>
+<div id="CSUSZKA2" class="csuszka"></div>
+<img id="GOLYO2" class="golyo" src="img/sapka1.png" /><div id="IDOVONAL2" class="idovonal"><div ontouchstart="Skala(2,0);" class="idosav3"></div><div ontouchstart="Skala(2,1);" class="idosav2"></div><div ontouchstart="Skala(2,2);" class="idosav2"></div><div ontouchstart="Skala(2,3);" class="idosav3"></div></div></div><div id="SKALA2" class="skala"><div class="skala_szoveg2">1</div><div class="skala_szoveg2"></div><div class="skala_szoveg2">2</div><div class="skala_szoveg2"></div><div class="skala_szoveg2">3</div><div class="skala_szoveg2"></div><div class="skala_szoveg2" style="color:#d37119;">Mindegy</div></div><div id="top5_kereses" style="padding-bottom:20%;"><div class="top5_gomb" ontouchstart="top5(2);">Legnépszerűbb receptek</div><div class="top5_gomb" ontouchstart="top5(1);">Mások kedvenc receptjei</div></div></div></div>
+<img class="oldalsav" src="img/oldalsav2.jpg" /></div><div id="LABLEC2" class="lablec"></div></div><div id="Oldal3" class="oldal" style="display:none;"> <img class="fologo" src="img/kislogo.jpg" />
+<img id="CSIK3" class="csik" src="img/fejlec3.jpg" ontouchstart="javascript:Vissza();"/><div class="fooldal">
+<img class="oldalsav" src="img/oldalsav1.jpg" /><div id="POROND3" class="porond"><div id="SCROLLER3" class="scroller">
+</div></div>
+<img class="oldalsav" src="img/oldalsav2.jpg" /></div><div id="LABLEC3" class="lablec"></div></div><div id="Oldal4" class="oldal" style="display:none;"> <img class="fologo" src="img/kislogo.jpg" />
+<img id="CSIK4" class="csik" src="img/fejlec4.jpg" ontouchstart="javascript:Vissza();"/><div class="fooldal">
+<img class="oldalsav" src="img/oldalsav1.jpg" /><div id="POROND4" class="porond"><div id="SCROLLER4" class="scroller">
+</div></div>
+<img class="oldalsav" src="img/oldalsav2.jpg" /></div><div id="LABLEC4" class="lablec"></div></div><div id="Oldal5" class="oldal" style="display:none;"> <img class="fokep" src="img/naptar.jpg" ontouchstart="javascript:Vissza();"/><div id="LABLEC5" class="lablec"></div></div><div id="Oldal6" class="oldal" style="display:none;"> 
+<img class="fologo" src="img/kislogo.jpg" />
+<img id="CSIK6" class="csik" src="" ontouchstart="javascript:Vissza();"/><div class="fooldal">
+<img class="oldalsav" src="img/oldalsav1.jpg" /><div id="POROND6" class="porond"><div id="SCROLLER6" class="scroller">
+</div></div>
+<img class="oldalsav" src="img/oldalsav2.jpg" /></div><div id="LABLEC6" class="lablec"></div></div><div id="Oldal7" class="oldal" style="display:none;"> <img class="fologo" src="img/kislogo.jpg" /><div style="display:block;position:relative;"><div class="csik">
+<img id="CSIK7" class="csik" src="img/fejlec_ures.jpg" /><div class="csikvissza" ontouchstart="javascript:Vissza();"></div></div><div id="RECEPTFEJLEC"> <img id="RKEDVENC" src="" ontouchstart="Kedvenc(true);"/><div id="RNEV"></div><div id="RIDO"></div><div id="RSIPKA"></div></div></div><div class="fooldal">
+<img class="oldalsav" src="img/oldalsav1.jpg" /><div id="POROND7" class="porond">
+<div id="RECEPTMENUK">
+<a href="#" ontouchstart="javascript:ReceptMenu(1);" id="RMENU1" class="recept_menu selected">FOTÓ</a>
+<a href="#" ontouchstart="javascript:ReceptMenu(2);" id="RMENU2" class="recept_menu">HOZZÁVALÓK</a>
+<a href="#" ontouchstart="javascript:ReceptMenu(3);" id="RMENU3" class="recept_menu">ELKÉSZÍTÉS</a>
+<a href="#" ontouchstart="javascript:ReceptMenu(4);" id="RMENU4" class="recept_menu">ÉRTÉKELÉS</a></div><div class="recept_terkoz"></div><div id="RECEPT_MEZO1" class="recept_mezo" style="overflow:scroll;-webkit-overflow-scrolling: touch;">
+<img id="NAGYKEP" src="" class="recept_nagykep"/></div><div id="RECEPT_MEZO2" class="recept_mezo" style="display:none;"><div class="adag_cim">Mennyi gyümölcsre szóljon a recept?</div>
+<input id="ADAG" class="bevitel" type="number" maxlength="4" onblur="Recalc();" onkeydown="Recalc_enter(event);" onfocus="this.select();"/><div id="ADAGME">g gyümölcshöz</div>
+<img ontouchstart="javascript:Recalc();" class="recalc" src="img/recalc.jpg"/><div id="HOZZAVALOK" style="overflow:scroll;-webkit-overflow-scrolling: touch;"><div id="SCROLLER_H" class="scroller"></div></div></div><div id="RECEPT_MEZO3" class="recept_mezo" style="display:none;"><div id="ELKESZITES"></div></div><div id="RECEPT_MEZO4" class="recept_mezo" style="display:none;"><div id="ERTEKELES"><p id="ERTEKEL_LABEL">Recept értékelése :</p><div id="ECSILLAGOK"><div id="ECS1" class="ecsillag" ontouchstart="ertekeles(1);"></div><div id="ECS2" class="ecsillag" ontouchstart="ertekeles(2);"></div><div id="ECS3" class="ecsillag" ontouchstart="ertekeles(3);"></div><div id="ECS4" class="ecsillag" ontouchstart="ertekeles(4);"></div><div id="ECS5" class="ecsillag" ontouchstart="ertekeles(5);"></div></div><p id="ATLAG">Eddigi átlag : <span id='SZAV_ATLAG' class='atlag'>0</span> ( <span id="SZAV_SZAM">0</span> szavazat)</p><div id="MEGOSZTAS">
+<img id="ShareIkon2" class="shareikon"src="img/share.png" />
+<img id="FacebookIkon2" class="shareikon"src="img/facebook.png" />
+<img id="TwitterIkon2" class="shareikon"src="img/twitter.png" /></div></div></div></div>
+<img class="oldalsav" src="img/oldalsav2.jpg" /></div>
+<div id="LABLEC7" class="lablec"></div></div><div id="Oldal8" class="oldal" style="display:none;"> <div id="FEJLEC8" class="fejlec">
+<img id="LOGO8" class="logo" src="img/logo_nagy.jpg" /></div><div id="CSIK8" class="csik">
+<a id="VISSZA8" href="#" ontouchstart="javascript:Vissza();"><div class="vissza"></div></a>
+<div id="CSIKTXT8" class="csiktxt">Beállítások</div></div><div id="POROND8" class="porond" style="overflow:scroll;-webkit-overflow-scrolling:touch;"><div id="SCROLLER3" class="scroller"><div class="beall_sor"><div class="blokk"><div class="beallitas" style="color:lightgray;">Jelenlegi internetkapcsolat : </div><div class="magyarazat">Készüléke hogyan csatlakozik az internethez.</div></div><div id="NETWORKSTATUS" class="setting" style="border:none;"></div><br></div>
+<div class="beall_sor"><div class="blokk"><div class="beallitas">Frissítés csak WiFi kapcsolat esetén </div><div class="magyarazat">A receptek és fotók csak ezen típusú internetkapcsolat esetén frissülnek illetve töltődnek le.</div></div>
+<img id="WIFI_ONLY" class="setting on" src="img/beki1.png" ontouchstart="this.src=(this.className=='setting on')?'img/beki0.png':'img/beki1.png'; this.className=(this.className=='setting on')?'setting':'setting on'; Preferences(1,((this.className=='setting on')?1:0)); " /></div>
+<div class="beall_sor"><div class="blokk"><div class="beallitas">Kategória nézet után kategóriakeresés </div><div class="magyarazat">Amennyiben a keresést kategória nézet után indítja, úgy a keresés csak a recept kategórián belül történik.</div></div>
+<img id="KAT_SEARCH" class="setting on" src="img/beki1.png" ontouchstart="this.src=(this.className=='setting on')?'img/beki0.png':'img/beki1.png'; this.className=(this.className=='setting on')?'setting':'setting on'; Preferences(2,((this.className=='setting on')?1:0)); " /></div>
+<!-- <div class="beall_sor"><div class="blokk"><div class="beallitas">Előzmények mutatása:</div><div class="magyarazat">A korábban megtekintett receptek listája milyen időtávban jelenjen meg.</div></div><div id="ELOZMENY"
+class="setting"
+style="font-size:1.3em;"
+ertek = 0;
+ontouchstart = "Elozmenyek_beallitas();"
+>
+</div></div> --><div class="beall_sor"><div class="blokk"><div class="beallitas" style="color:lightgray;">Receptek száma : </div>
+</div><div id="RECNUMINFO" class="setting" style="border:none;"></div><br></div>
+</div> </div><div id="LABLEC8" class="lablec">
+</div></div><div id="Oldal9" class="oldal" style="display:none;background:#000000;"> <div id="VIDEO" class="fokep"></div><div id="LABLEC9" class="lablec"></div></div><div id="Oldal10" class="oldal" style="display:none;"> 
+<img class="fologo" src="img/kislogo.jpg" />
+<img id="CSIK10" class="csik" src="img/fejlec10.jpg" ontouchstart="javascript:Vissza();"/><div class="fooldal">
+<img class="oldalsav" src="img/oldalsav1.jpg" /><div id="POROND10" class="porond"><div id="SCROLLER10" class="scroller">
+</div></div>
+<img class="oldalsav" src="img/oldalsav2.jpg" /></div><div id="LABLEC10" class="lablec"></div></div><div id="Oldal11" class="oldal" style="display:none;"> 
+<img class="fologo" src="img/kislogo.jpg" />
+<img id="CSIK11" class="csik" src="img/fejlec11.jpg" ontouchstart="javascript:Vissza();"/><div class="fooldal">
+<img class="oldalsav" src="img/oldalsav1.jpg" /><div id="POROND11" class="porond"><div id="SCROLLER11" class="scroller">
+</div></div>
+<img class="oldalsav" src="img/oldalsav2.jpg" /></div><div id="LABLEC11" class="lablec"></div></div><div style="display:none;"> <iframe id="RECEPTEK" src="db/ilekvar.txt"> </iframe> <div id="ERTEKELES"></div><div id="ERTEKELESEK"></div></div><div id="Notification"><div id="NotificationMessage"></div></div> </body></html>

@@ -21,7 +21,7 @@
     <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="true" />
-    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreen" value="splash" />
 	<preference name="SplashScreenDelay" value="10000" />
     <preference name="show-splash-screen-spinner" value="false" />
     <preference name="auto-hide-splash-screen" value="false" />
@@ -34,6 +34,10 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="webviewbounce" value="false" />
     <preference name="KeyboardShrinksView" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <feature name="StatusBar">
+            <param name="ios-package" value="CDVStatusBar" onload="false" />
+        </feature>
     
     <icon src="icon.png" />
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-29-ldpi.png" />
@@ -91,6 +95,9 @@
 	<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
 		<false/>
 	</gap:config-file>
+    
+    <gap:plugin name="nl.x-services.plugins.insomnia" version="4.0.1" />
+    <gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" version="1.2.0" />
     
     <access origin="*" />
 </widget>

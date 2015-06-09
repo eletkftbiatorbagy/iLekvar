@@ -265,7 +265,7 @@ function Ertekeles_letolt()
 {callback=function(response){Ertekeles_feldolgoz('ERTEKELESEK',response);} 
 ajax_hivas(SZERVER+'/app_ilekvar/code/ertekelesek.php?random='+Math.random(), 'callback','ERTEKELESEK');}
 var PROBA=1;function Ertekeles_feldolgoz(CMEZO,response)
-{console.log(response);if (!response){return;} 
+{if (!response){return;} 
 obj=eval( response );for (var n=0;n<obj.length;n++)
 {var rid=obj[n]['i'];Ertekelesek[rid]=Array();Ertekelesek[rid][0]=obj[n]['n'];Ertekelesek[rid][1]=obj[n]['e'];var atlag=parseFloat(obj[n]['n']/obj[n]['e']);Ertekelesek[rid][2]=atlag;}
 ErtekelesOK=true;FreeCallback(CMEZO);}
@@ -274,7 +274,7 @@ var SkalaPoz=Array();SkalaPoz[1]=Array (-4,15,34,53,72,91);SkalaPoz[2]=Array (-4
 if (NR==2){Kereses_Fok=NUM;}}
 function ScrollRefresh(oldal)
 {if (oldal)
-{if (oldal==2){setTimeout(function (){PS2.refresh();},100);console.log("CR2");}
+{if (oldal==2){setTimeout(function (){PS2.refresh();},100);}
 if (oldal==3){setTimeout(function (){PS3.refresh();},100);}
 if (oldal==4){setTimeout(function (){PS4.refresh();},100);}
 if (oldal==5){setTimeout(function (){PS5.refresh();},100);}
@@ -308,7 +308,8 @@ else
 setTimeout(function(){PS10.refresh();},10);setTimeout(function(){PS11.refresh();},10);hideKeyboard(document.getElementById('KERES'));}
 function top5_update(ajax_free,response)
 {var resp=response.split("|");myID=resp[0];window.localStorage.setItem("ilekvar_myID",myID);t5=JSON.parse(resp[1]);var t5kedvenc="";var t5bestof="";for (n=0;n<10;n++)
-{console.log("RESP("+n+")"+t5[n]["nr"]+" "+t5[n]["recept_id"]);if (t5[n]["mode"]==="2"){t5kedvenc+=","+t5[n]["recept_id"]+"|"+t5[n]["data"];}
+{
+if (t5[n]["mode"]==="2"){t5kedvenc+=","+t5[n]["recept_id"]+"|"+t5[n]["data"];}
 if (t5[n]["mode"]==="1"){t5bestof+=","+t5[n]["recept_id"]+"|"+t5[n]["data"];}}
 window.localStorage.setItem("ilekvar_top5_kedvenc", t5kedvenc.substr(1));window.localStorage.setItem("ilekvar_top5_bestof",  t5bestof.substr(1));}
 var reklam_callback;var ReklamStarted=false;function Reklam()
@@ -369,11 +370,16 @@ if (!window.device){document.getElementById("REKLAMKEP").src="img/teszt_reklam.j
 console.log("FÁJL megnyitás : "+fajl);window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){fileSystem.root.getFile(fajl,{create: false}, function(fileEntry){console.log("-> "+fileEntry.toURL());document.getElementById("REKLAMKEP").src=fileEntry.toURL();setTimeout(function(){document.getElementById("REKLAM").style.display="block";},0);Spinner(false);console.log("Reklam vege---");}, function(error) 
 {console.log("ShowReklam - getFile hiba ("+fajl+") : "+error.description);Spinner(false);ReklamOFF();});}, function(error) 
 {console.log("ShowReklam - FS hiba : "+error.description);Spinner(false);ReklamOFF();});}
-function ReklamOFF(anim)
+function log(txt)
+{document.getElementById("LOG").innerHTML+=txt+"<br>";}
+if (typeof console  !="undefined") 
+if (typeof console.log !='undefined')
+console.olog=console.log;else
+console.olog=function(){};console.log=function(message){console.olog(message);log(message);};console.error=console.debug=console.info=console.log;function ReklamOFF(anim)
 {document.getElementById("REKLAM_WAIT").style.display="none";Spinner(false);document.getElementById("REKLAM_TOVABB").style.display="none";if (!anim)
-{document.getElementById('Oldal1').style.display="block";document.getElementById("REKLAM").style.display='none';REKLAM=null;console.log('Reklám OFF');}
+{document.getElementById('Oldal0').style.display="block";document.getElementById('Oldal1').style.display="block";document.getElementById("REKLAM").style.display='none';REKLAM=null;console.log('Reklám OFF');}
 else
-{document.getElementById('Oldal1').style.display='block';document.getElementById("REKLAMKEP").removeAttribute("ontouchstart");REKLAM_TIMER=setInterval(function(){SlideLeft();},60);console.log("slide");pos=parseFloat(0);slide=parseFloat(sW / 30 );REKLAM=document.getElementById("REKLAM");}}
+{document.getElementById('Oldal0').style.display="block";document.getElementById('Oldal1').style.display='block';document.getElementById("REKLAMKEP").removeAttribute("ontouchstart");REKLAM_TIMER=setInterval(function(){SlideLeft();},60);console.log("slide");pos=parseFloat(0);slide=parseFloat(sW / 30 );REKLAM=document.getElementById("REKLAM");}}
 var REKLAM_TIMER;var pos;var slide;var REKLAM;function SlideLeft()
 {pos -=slide;slide=slide * 1.03;REKLAM.style.left=pos+"px";if (pos <=-1*sW)
 {clearInterval(REKLAM_TIMER);REKLAM_TIMER=0;ReklamOFF();}}

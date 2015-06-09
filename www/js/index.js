@@ -4,7 +4,7 @@ const OldalSzam=11;const SorokSzamaMin=5;const SZERVER="http://e-let.hu/koronasc
 window.addEventListener('load', loaded, false);},
 bindEvents: function(){document.addEventListener('deviceready', this.onDeviceReady, false);},
 onDeviceReady: function(){
-var args={};OrientationReCalc();StatusBar.overlaysWebView(false);Lablec(1,1);var TXT=document.getElementById('RECEPTEK').contentWindow.document.body.innerHTML;TXT=TXT.substring(5,TXT.length-6);var R=TXT.split("•");KategoriaID=R[1].split("|");KategoriaNEV=R[2].split("|");EvszakID={};EvszakD1={};EvszakD2={};Receptek=R[6].split("©");var Kedvenceim=[];for (var n=0;n<Receptek.length;n++)
+var args={};OrientationReCalc();Lablec(1,1);var TXT=document.getElementById('RECEPTEK').contentWindow.document.body.innerHTML;TXT=TXT.substring(5,TXT.length-6);var R=TXT.split("•");KategoriaID=R[1].split("|");KategoriaNEV=R[2].split("|");EvszakID={};EvszakD1={};EvszakD2={};Receptek=R[6].split("©");var Kedvenceim=[];for (var n=0;n<Receptek.length;n++)
 {var Recept=Receptek[n].split("|");if (window.localStorage.getItem("kedvenc"+Recept[0]) && window.localStorage.getItem("kedvenc"+Recept[0])==="1" ){Kedvenceim.push(Recept[0]);}}
 var AN={};AN.Platform="PC";AN.Version="-";AN.W=window.innerWidth;AN.H=window.innerHeight;AN.TEST=true;AN.Logins=0;if (window.localStorage.getItem("ilekvar_logins")){AN.Logins=window.localStorage.getItem("ilekvar_logins");}
 AN.Logins++;window.localStorage.setItem("ilekvar_logins",AN.Logins);if (window.device)

@@ -80,7 +80,7 @@
     <gap:plugin name="org.apache.cordova.file-transfer" version="0.4.6" />
     <preference name="iosPersistentFileLocation" value="Library" />
     
-    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.4.0">
+    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.9.0">
     	<param name="APP_ID" value="542071045911013" />
     	<param name="APP_NAME" value="iLekvár" />
 	</gap:plugin>

@@ -13,7 +13,7 @@ if (window.device){FB.init({appId: "542071045911013", nativeInterface: CDV.FB, u
 Ertekeles_letolt();for (var m=1;m<=7;m++)
 {Sor(document.getElementById("POROND0"),null,null);}
 var K=document.getElementById("KERES");K.parentNode.style.height=Szazalek * 8+"px";K.focus();K.select();document.getElementById("KERES_GOMB").style.height=Szazalek * 10+"px";document.getElementById("IDOVONAL1").style.height=Szazalek * 22+"px";document.getElementById("IDOVONAL2").style.height=Szazalek * 22+"px";document.getElementById("SKALA1").style.height=Szazalek * 6+"px";document.getElementById("SKALA2").style.height=Szazalek * 6+"px";setTimeout(function(){console.log("--- Reklam indul");Reklam();},500);if (window.device){setTimeout(function(){navigator.splashscreen.hide();console.log("SplashScreen KIKAPCS");}, 3500);}
-PS1=new iScroll('POROND1',{hScrollbar: false, vScrollbar: false, hScroll: false});PS2=new iScroll('POROND2',{hScrollbar: false, vScrollbar: false, hScroll: false});PS3=new iScroll('POROND3',{hScrollbar: false, vScrollbar: false, hScroll: false});PS4=new iScroll('POROND4',{hScrollbar: false, vScrollbar: false, hScroll: false});PS6=new iScroll('POROND6',{hScrollbar: false, vScrollbar: false, hScroll: false});PS8=new iScroll('POROND8',{hScrollbar: false, vScrollbar: false, hScroll: false});PS10=new iScroll('POROND10',{hScrollbar: false, vScrollbar: false, hScroll: false});PS11=new iScroll('POROND11',{hScrollbar: false, vScrollbar: false, hScroll: false});RM1=new iScroll('RECEPT_MEZO1',{hScrollbar: false, vScrollbar: false, hScroll: false});RM2=new iScroll('HOZZAVALOK',{hScrollbar: false, vScrollbar: false, hScroll: false});RM3=new iScroll('RECEPT_MEZO3',{hScrollbar: false, vScrollbar: false, hScroll: false});}};var KategoriaID=Array();var KategoriaNEV=Array();var Receptek=Array();var LastPage=[1];var LastLablec=[1];var LastRecept=[0];var LastKategoria=[];var LastKat=0;function Oldal(oldal,lablec)
+setTimeout( function(){PS1=new iScroll('POROND1',{hScrollbar: false, vScrollbar: false, hScroll: false});PS2=new iScroll('POROND2',{hScrollbar: false, vScrollbar: false, hScroll: false});PS3=new iScroll('POROND3',{hScrollbar: false, vScrollbar: false, hScroll: false});PS4=new iScroll('POROND4',{hScrollbar: false, vScrollbar: false, hScroll: false});PS6=new iScroll('POROND6',{hScrollbar: false, vScrollbar: false, hScroll: false});PS8=new iScroll('POROND8',{hScrollbar: false, vScrollbar: false, hScroll: false});PS10=new iScroll('POROND10',{hScrollbar: false, vScrollbar: false, hScroll: false});PS11=new iScroll('POROND11',{hScrollbar: false, vScrollbar: false, hScroll: false});RM1=new iScroll('RECEPT_MEZO1',{hScrollbar: false, vScrollbar: false, hScroll: false});RM2=new iScroll('HOZZAVALOK',{hScrollbar: false, vScrollbar: false, hScroll: false});RM3=new iScroll('RECEPT_MEZO3',{hScrollbar: false, vScrollbar: false, hScroll: false});},1000);}};var KategoriaID=Array();var KategoriaNEV=Array();var Receptek=Array();var LastPage=[1];var LastLablec=[1];var LastRecept=[0];var LastKategoria=[];var LastKat=0;function Oldal(oldal,lablec)
 {document.getElementById("Notification").style.display="none";document.getElementById("VIDEO").innerHTML="";if (!oldal){return;}
 if (oldal<0)        
 {oldal=Math.abs(oldal);}
@@ -215,7 +215,7 @@ user_message_prompt:'Ossza meg ismerőseivel ezt a receptet!'
 };FB.ui(params,  function(response){if(response){facebook.Dialog.remove(facebook.Dialog._active);}});break;case 2: 
 window.plugins.socialsharing.shareViaTwitter('Az én lekvárom :'+ReceptNEV+'\n', SZERVER+'/app_ilekvar/media/'+ReceptIMG, 'http://azenlekvarom.hu');break;}}
 var oc_timer;window.addEventListener("orientationchange", function(){clearTimeout(oc_timer);var oc_delay=0;if (device && device.platform=="Android"){oc_delay=500;}
-oc_timer=setTimeout(OrientationReCalc,oc_delay);}, false);function OrientationReCalc()
+oc_timer=setTimeout(OrientationReCalc,oc_delay);}, false);var firstOrientationRecalc=true;function OrientationReCalc()
 {
 var PORTRAIT=true;if (window.device)
 {
@@ -231,7 +231,7 @@ else
 for (var n=1;n<=OldalSzam;n++)
 {document.getElementById("Oldal"+n).style.width=sW+"px";document.getElementById("Oldal"+n).style.height=sH+"px";}
 ScreenHeight=sH;Szazalek=parseInt(ScreenHeight/100);RHatterH=parseInt(ScreenHeight*0.1216);RCsikH=parseInt(ScreenHeight*0.13);RNevH=parseInt(ScreenHeight*0.036);RNevT=parseInt(ScreenHeight*0.030);RNevT2=parseInt(ScreenHeight*0.015);RNevLH=parseInt(RNevH*0.85);RIdoH=parseInt(ScreenHeight*0.025);RIdoT=parseInt(ScreenHeight*0.075);RIdoT2=parseInt(ScreenHeight*0.080);RCsiH=parseInt(ScreenHeight*0.027);RCsiT=parseInt(ScreenHeight*0.063);RCsiT2=parseInt(ScreenHeight*0.078);}
-ScrollRefresh();}
+if (!firstOrientationRecalc){ScrollRefresh();firstOrientationRecalc=false;}}
 function ertekeles(NUM)
 {DrawErtekeles(NUM);var MODE="&uj=true&id="+ReceptMost+"&diff="+NUM;var KorabbiErtekeles=window.localStorage.getItem("E"+ReceptMost);if (NUM==KorabbiErtekeles){return;} 
 if (KorabbiErtekeles!=null){MODE="&uj=false&id="+ReceptMost+"&diff="+parseInt(NUM-KorabbiErtekeles);} 

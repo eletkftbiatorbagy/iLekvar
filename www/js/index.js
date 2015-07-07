@@ -1,4 +1,4 @@
-const OldalSzam=13;const SorokSzamaMin=5;const SZERVER="http://e-let.hu/koronascukor";var Video=[];Video.push(["kkn7LBWmwd8",16,"Mézes citromos almalekvár"]);Video.push(["Uv_vaHmPrmc",16,"Mokkás körtelekvár"]);Video.push(["8o0c2agqOmA",16,"Vodkás narancslekvár"]);Video.push(["g0W9vsO0pTg",24,"Epres rebarbaralekvár"]);Video.push(["d1Zzdj4AMiU",16,"Mézdinnyelekvár"]);Video.push(["19E5upWWYxE",17,"Málnás mangólekvár"]);Video.push(["is2-Dp9JlUk",24,"Kivis eperlekvár"]);Video.push(["4mUjCQZ4aCY",16,"Karamellás almalekvár"]);Video.push(["BFUXcj6eHgc",16,"Gyömbéres banánlekvár"]);Video.push(["rpnmPncy0Kc",24,"Epres banánlekvár"]);Video.push(["ZmOHvX7VsaQ",16,"Piña colada dzsem"]);Video.push(["qD2LqbSUcYw",16,"Rumos ananász chutney"]);Video.push(["xgyKhj4t8IM",16,"Mangólekvár"]);Video.push(["eRFAD2Cj5T0",16,"Gránátalmalekvár"]);Video.push(["cPUOOb_2daw",32,"Szilvalekvár"]);Video.push(["ZIYCItMD1jg",16,"Passiógyümölcslekvár"]);Video.push(["DZn02D0SRSA", 1,"Kókuszos málnalekvár"]);Video.push(["4emKsuVuDg4", 8,"Eperlekvár"]);Video.push(["khW8MFvFX0o", 2,"Fehércsokoládés áfonyalekvár"]);Video.push(["oeTKsRe3GY0",16,"Nektarinlekvár"]);Video.push(["zx1U38bcaJw",16,"Kivilekvár"]);Video.push(["fxcmr9OjFmc",16,"Cseresznyelekvár"]);Video.push(["I73PE0uckc4", 4,"Vaníliás sárgabaracklekvár"]);Video.push(["OdJuGTd4lWM",16,"Narancs-ananász-mangó dzsem"]);var KepArany=4/3;var sW;var sH;var ReceptMost;var ReceptAZONOSITO;var ReceptIMG;var ReceptIMG2;var ReceptNEV;var ReceptADAG;var ReceptDefADAG;var ReceptME;var ReceptHOZZAVALOK;var ReceptLEIRAS;var ReceptIDO;var EVSZAK;var EVSZAKnr;var UZENETEK;var MSG_CIM;var MSG_TXT;var MSG_IMG;var Elozmenyek=Array();const ElozmenyekMAX=25;var EHistory=Array();var ELOZMENYEK=Array('csak a mai','utolsó 5','utolsó 10');var PS1;var PS3;var PS2;var PS4;var PS5;var PS6;var PS8;var PS10;var PS11;var PS12;var PS13;var RM1;var RM2;var RM3;var Szazalek;var RHatterH;var RCsikH;var RNevH;var RNevT;var RNevT2;var RNevLH;var RIdoH;var RIdoT;var RIdoT2;var RCsiH;var RCsiT;var RCsiT2;var ErtekelesProba;var ErtekelesOK=false;var Ertekelesek=Array();var callback, callback2, callback3;var myID=window.localStorage.getItem("ilekvar_myID");var Kereses_Ido=5;var Kereses_Idok=Array(10,20,30,60,120,999);var Kereses_Fok=5;var VisszaLock=false;var app={initialize: function(){this.bindEvents();function loaded() 
+var OldalSzam=13;var SorokSzamaMin=5;var SZERVER="http://e-let.hu/koronascukor";var APP_HTTP="http://e-let.hu/koronascukor/ilekvar.php";var Video=[];Video.push(["kkn7LBWmwd8",16,"Mézes citromos almalekvár"]);Video.push(["Uv_vaHmPrmc",16,"Mokkás körtelekvár"]);Video.push(["8o0c2agqOmA",16,"Vodkás narancslekvár"]);Video.push(["g0W9vsO0pTg",24,"Epres rebarbaralekvár"]);Video.push(["d1Zzdj4AMiU",16,"Mézdinnyelekvár"]);Video.push(["19E5upWWYxE",17,"Málnás mangólekvár"]);Video.push(["is2-Dp9JlUk",24,"Kivis eperlekvár"]);Video.push(["4mUjCQZ4aCY",16,"Karamellás almalekvár"]);Video.push(["BFUXcj6eHgc",16,"Gyömbéres banánlekvár"]);Video.push(["rpnmPncy0Kc",24,"Epres banánlekvár"]);Video.push(["ZmOHvX7VsaQ",16,"Piña colada dzsem"]);Video.push(["qD2LqbSUcYw",16,"Rumos ananász chutney"]);Video.push(["xgyKhj4t8IM",16,"Mangólekvár"]);Video.push(["eRFAD2Cj5T0",16,"Gránátalmalekvár"]);Video.push(["cPUOOb_2daw",32,"Szilvalekvár"]);Video.push(["ZIYCItMD1jg",16,"Passiógyümölcslekvár"]);Video.push(["DZn02D0SRSA", 1,"Kókuszos málnalekvár"]);Video.push(["4emKsuVuDg4", 8,"Eperlekvár"]);Video.push(["khW8MFvFX0o", 2,"Fehércsokoládés áfonyalekvár"]);Video.push(["oeTKsRe3GY0",16,"Nektarinlekvár"]);Video.push(["zx1U38bcaJw",16,"Kivilekvár"]);Video.push(["fxcmr9OjFmc",16,"Cseresznyelekvár"]);Video.push(["I73PE0uckc4", 4,"Vaníliás sárgabaracklekvár"]);Video.push(["OdJuGTd4lWM",16,"Narancs-ananász-mangó dzsem"]);var KepArany=4/3;var sW;var sH;var ReceptMost;var ReceptAZONOSITO;var ReceptIMG;var ReceptIMG2;var ReceptNEV;var ReceptADAG;var ReceptDefADAG;var ReceptME;var ReceptHOZZAVALOK;var ReceptLEIRAS;var ReceptIDO;var EVSZAK;var EVSZAKnr;var UZENETEK;var MSG_CIM;var MSG_TXT;var MSG_IMG;var Elozmenyek=Array();var ElozmenyekMAX=25;var EHistory=Array();var ELOZMENYEK=Array('csak a mai','utolsó 5','utolsó 10');var PS1;var PS3;var PS2;var PS4;var PS5;var PS6;var PS8;var PS10;var PS11;var PS12;var PS13;var RM1;var RM2;var RM3;var Szazalek;var RHatterH;var RCsikH;var RNevH;var RNevT;var RNevT2;var RNevLH;var RIdoH;var RIdoT;var RIdoT2;var RCsiH;var RCsiT;var RCsiT2;var ErtekelesProba;var ErtekelesOK=false;var Ertekelesek=Array();var callback, callback2, callback3;var myID=window.localStorage.getItem("ilekvar_myID");var Kereses_Ido=5;var Kereses_Idok=Array(10,20,30,60,120,999);var Kereses_Fok=5;var VisszaLock=false;var app={initialize: function(){this.bindEvents();function loaded() 
 {
 }
 window.addEventListener('load', loaded, false);},
@@ -203,29 +203,24 @@ return E;}
 function network_status(OnFF){var networkState=navigator.connection.type;var states={};states[Connection.UNKNOWN]='???';states[Connection.ETHERNET]='Vezetékes';states[Connection.WIFI]='WiFi';states[Connection.CELL_2G]='Mobil';states[Connection.CELL_3G]='Mobil';states[Connection.CELL_4G]='Mobil';states[Connection.CELL]='Mobil';states[Connection.NONE]='nincs';if (!OnFF){ return states[networkState];} else
 {return (!(states[networkState]==="nincs"));}}
 function Megoszt(MODE)
-{var MSG_HTML="<html><head><meta http-equiv='Content-Type'  content='text/html charset=UTF-8' /></head>";MSG_HTML+="<body style='font:12px Arial;'>";ReceptLEIRAS=ReceptLEIRAS.replace(/&lt;/g,'<');ReceptLEIRAS=ReceptLEIRAS.replace(/&gt;/g,'>');MSG_HTML+="<h1 style='font:16px Arial;font-weight:bold;text-decoration:underline;'>"+ReceptNEV+"</h1><br>"+"<img src='"+SZERVER+"/app_ilekvar/media/"+ReceptIMG+"'/><br><br>"+ReceptLEIRAS;MSG_HTML+="<br><br><h2 style='font:13px Arial;font-weight:bold;text-decoration:underline;float:left;display:inline;'>Elkészítési idő :</h2>"+ReceptIDO+' perc<br><br>';MSG_HTML+="<h2 style='font:13px Arial;font-weight:bold;text-decoration:underline;'>Hozzávalók ("+ReceptADAG+" "+ReceptME+") : </h2><br>";MSG_HTML+=ReceptHOZZAVALOK+"<br>";MSG_HTML+="</body></html>";var MSG_FB="Az én lekvárom - mobiltelefonra és tabletre - Lekvárreceptek kéznél.";switch (MODE)
+{var MSG_HTML="<html><head><meta http-equiv='Content-Type'  content='text/html charset=UTF-8' /></head>";MSG_HTML+="<body style='font:12px Arial;'>";ReceptLEIRAS=ReceptLEIRAS.replace(/&lt;/g,'<');ReceptLEIRAS=ReceptLEIRAS.replace(/&gt;/g,'>');MSG_HTML+="<h1 style='font:16px Arial;font-weight:bold;text-decoration:underline;'>"+ReceptNEV+"</h1><br>"+"<img src='"+SZERVER+"/app_ilekvar/media/"+ReceptIMG+"'/><br><br>"+ReceptLEIRAS;MSG_HTML+="<br><br><h2 style='font:13px Arial;font-weight:bold;text-decoration:underline;float:left;display:inline;'>Elkészítési idő :</h2>"+ReceptIDO+' perc<br><br>';MSG_HTML+="<h2 style='font:13px Arial;font-weight:bold;text-decoration:underline;'>Hozzávalók ("+ReceptADAG+" "+ReceptME+") : </h2><br>";MSG_HTML+=ReceptHOZZAVALOK+"<br>";MSG_HTML+="</body></html>";MSG_FB="Az én lekvárom - mobiltelefonra és tabletre - Lekvárreceptek kéznél.";switch (MODE)
 {case 0:
 window.plugins.EmailComposer.showEmailComposerWithCallback(null,"Az én lekvárom : "+ReceptNEV,MSG_HTML,[],[],[],true,[],[]);break;case 1: 
-var LINK="http://azenlekvarom.hu";var params={method:'feed',
-name: ReceptNEV,
-caption:'Az én lekvárom',
-description: MSG_FB,
-link:'http://azenlekvarom.hu',
-picture: SZERVER+'/app_ilekvar/media/'+ReceptIMG,
-actions: [{name:'Az én lekvárom', link: LINK} ],
-user_message_prompt:'Ossza meg ismerőseivel ezt a receptet!'
-};FB.ui(params,  function(response){if(response){facebook.Dialog.remove(facebook.Dialog._active);}});break;case 2: 
+facebookConnectPlugin.getLoginStatus( 
+fbLoginSuccess, 
+fbLogin
+);break;case 2: 
 window.plugins.socialsharing.shareViaTwitter('Az én lekvárom :'+ReceptNEV+'\n', SZERVER+'/app_ilekvar/media/'+ReceptIMG, 'http://azenlekvarom.hu');break;}}
 function Megoszt2(MODE)
 {var MSG_HTML="<html><head><meta http-equiv='Content-Type'  content='text/html charset=UTF-8' /></head>";MSG_HTML+="<body style='font:12px Arial;'>";MSG_HTML+=MSG_TXT;if (MSG_KEP && MODE==0){MSG_HTML+="<img src='"+MSG_KEP+"'/><br><br>";}
 MSG_HTML+="</body></html>";var MSG_FB=MSG_TXT;switch (MODE)
 {case 0:
-window.plugins.EmailComposer.showEmailComposerWithCallback(null,MSG_CIM,MSG_HTML+"<br>- <a href='http://azenlekvarom.hu'>Az én lekvárom</a> -",[],[],[],true,[],[]);break;case 1: 
+window.plugins.EmailComposer.showEmailComposerWithCallback(null,MSG_CIM,MSG_HTML+"<br>- <a href='"+APP_HTTP+"'>Az én lekvárom</a> -",[],[],[],true,[],[]);break;case 1: 
 facebookConnectPlugin.getLoginStatus( 
-fbLoginSuccess, 
-fbLogin
+fbLoginSuccess2, 
+fbLogin2
 );break;case 2: 
-window.plugins.socialsharing.shareViaTwitter(MSG_CIM+'\n'+MSG_TXT, MSG_IMG, 'http://azenlekvarom.hu');break;}}
+window.plugins.socialsharing.shareViaTwitter(MSG_CIM+'\n'+MSG_TXT.replace(/<(?:.|\n)*?>/gm, ''), MSG_IMG, APP_HTTP);break;}}
 var fbLogin=function(){facebookConnectPlugin.login(
 ["public_profile"], 
 fbLoginSuccess,
@@ -233,14 +228,32 @@ function (error){console.log(""+error);}
 )
 };var fbLoginSuccess=function (userData){var options={"method":"feed", 
 "app_id":"542071045911013",
-"link":"http://azenlekvarom.hu",
+"name": ReceptNEV,
+"link": APP_HTTP,
+"caption": "Az én lekvárom",
+"description" : MSG_FB,
+"picture": SZERVER+'/app_ilekvar/media/'+ReceptIMG,
+actions: [{name:'Az én lekvárom', link: LINK} ],
+user_message_prompt:'Ossza meg ismerőseivel ezt a receptet!'
+};facebookConnectPlugin.showDialog(
+options,
+function (result){console.log("Posted. "+JSON.stringify(result));},
+function (e){console.log("FB Failed: "+e);} 
+);};var fbLogin2=function(){facebookConnectPlugin.login(
+["public_profile"], 
+fbLoginSuccess2,
+function (error){console.log(""+error);} 
+)
+};var fbLoginSuccess2=function (userData){var options={"method":"feed", 
+"app_id":"542071045911013",
+"link":APP_HTTP,
 "caption": MSG_CIM,
 "description" : MSG_TXT,
 "picture": MSG_IMG
 };facebookConnectPlugin.showDialog(
 options,
 function (result){console.log("Posted. "+JSON.stringify(result));},
-function (e){alert("Failed: "+e);} 
+function (e){console.log("FB Failed: "+e);} 
 );};var oc_timer;window.addEventListener("orientationchange", function(){clearTimeout(oc_timer);var oc_delay=0;if (device && device.platform=="Android"){oc_delay=500;}
 oc_timer=setTimeout(OrientationReCalc,oc_delay);}, false);var firstOrientationRecalc=true;function OrientationReCalc()
 {

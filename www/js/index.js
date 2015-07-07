@@ -220,12 +220,12 @@ function Megoszt2(MODE)
 {var MSG_HTML="<html><head><meta http-equiv='Content-Type'  content='text/html charset=UTF-8' /></head>";MSG_HTML+="<body style='font:12px Arial;'>";MSG_HTML+=MSG_TXT;if (MSG_KEP && MODE==0){MSG_HTML+="<img src='"+MSG_KEP+"'/><br><br>";}
 MSG_HTML+="</body></html>";var MSG_FB=MSG_TXT;switch (MODE)
 {case 0:
-window.plugins.EmailComposer.showEmailComposerWithCallback(null,MSG_CIM,MSG_HTML+"<br>Az én lekvárom",[],[],[],true,[],[]);break;case 1: 
+window.plugins.EmailComposer.showEmailComposerWithCallback(null,MSG_CIM,MSG_HTML+"<br>- <a href='http://azenlekvarom.hu'>Az én lekvárom</a> -",[],[],[],true,[],[]);break;case 1: 
 facebookConnectPlugin.getLoginStatus( 
 fbLoginSuccess, 
 fbLogin
 );break;case 2: 
-window.plugins.socialsharing.shareViaTwitter('Az én lekvárom :'+MSG_CIM+'\n'+MSG_TXT, MSG_IMG, 'http://azenlekvarom.hu');break;}}
+window.plugins.socialsharing.shareViaTwitter(MSG_CIM+'\n'+MSG_TXT, MSG_IMG, 'http://azenlekvarom.hu');break;}}
 var fbLogin=function(){facebookConnectPlugin.login(
 ["public_profile"], 
 fbLoginSuccess,
@@ -403,10 +403,11 @@ UZENETEK=JSON.parse(escapeHtml(response));Refresh_uzenetek();}
 function Refresh_uzenetek()
 {if (!UZENETEK||UZENETEK==null){return;}
 var UnreadNr=0;var ShowNr=0;var PS=document.getElementById("SCROLLER12");PS.innerHTML="";for (var n=Object.keys(UZENETEK).length;n > 0;n--)
-{if (window.localStorage.getItem("ilekvar_read_"+n)){UZENETEK[parseInt(n)].uj="";}
+{var UJ=false;if (!window.localStorage.getItem("ilekvar_read_"+n)||window.localStorage.getItem("ilekvar_read_"+n).toUpperCase()!==UZENETEK[parseInt(n)].id)
+{UJ=true;window.localStorage.removeItem("ilekvar_read_"+n);}
 var TOL=new Date (UZENETEK[parseInt(n)].tol);var IG=new Date (UZENETEK[parseInt(n)].ig);var MOST=new Date();if (TOL < MOST && IG > MOST)
-{ShowNr++;if (UZENETEK[parseInt(n)].uj !==""){UnreadNr++;}
-var RCSI=document.createElement("div");RCSI.className="recept_csik";RCSI.style.height=RCsikH+"px";RCSI.style.className="recept_csik ures";var RKDO=document.createElement("div");RKDO.className="recept_kisfoto_keret";RKDO.style.height=parseInt(RCsikH*0.82)+"px";RKDO.style.width=parseInt(RCsikH*0.82)+"px";RKDO.style.marginTop=parseInt(RCsikH*0.05)+"px";RKDO.style.border="none";var RKF=document.createElement("img");RKF.className="recept_kisfoto message_ikon";RKF.setAttribute("src",((UZENETEK[parseInt(n)].uj !=="")?"img/uj.png":"img/nemuj.png"));var RNEV=document.createElement("div");RNEV.className="recept_nev";RNEV.style.fontSize=RNevH+"px";RNEV.style.height=RNevLH+"px";RNEV.style.lineHeight=RNevLH+"px";RNEV.innerHTML=UZENETEK[parseInt(n)].cim;RNEV.style.marginTop=parseInt(RNevT/2)+"px";RCSI.setAttribute("uzenetid",parseInt(n));var RIDO=document.createElement("div");RIDO.className="recept_ido";RIDO.innerHTML=UZENETEK[parseInt(n)].uzenet.replace(/<(?:.|\n)*?>/gm, '');RIDO.style.fontSize=RIdoH+"px";RIDO.style.marginTop=RIdoT+"px";RIDO.style.whiteSpace="nowrap";RIDO.style.width="60%";RIDO.style.overflow="hidden";RKDO.appendChild(RKF);RCSI.appendChild(RKDO);RCSI.appendChild(RNEV);RCSI.appendChild(RIDO);PS.appendChild(RCSI);Hammer(RCSI).on("tap", function(event){Uzenet_mutat(this.getAttribute("uzenetid"));});Hammer(RCSI,{tap_max_touchtime : 300, tap_max_distance  : 5});}}
+{ShowNr++;if (UJ){UnreadNr++;}
+var RCSI=document.createElement("div");RCSI.className="recept_csik";RCSI.style.height=RCsikH+"px";RCSI.style.className="recept_csik ures";var RKDO=document.createElement("div");RKDO.className="recept_kisfoto_keret";RKDO.style.height=parseInt(RCsikH*0.82)+"px";RKDO.style.width=parseInt(RCsikH*0.82)+"px";RKDO.style.marginTop=parseInt(RCsikH*0.05)+"px";RKDO.style.border="none";var RKF=document.createElement("img");RKF.className="recept_kisfoto message_ikon";RKF.setAttribute("src",((UJ)?"img/uj.png":"img/nemuj.png"));var RNEV=document.createElement("div");RNEV.className="recept_nev";RNEV.style.fontSize=RNevH+"px";RNEV.style.height=RNevLH+"px";RNEV.style.lineHeight=RNevLH+"px";RNEV.innerHTML=UZENETEK[parseInt(n)].cim;RNEV.style.marginTop=parseInt(RNevT/2)+"px";RCSI.setAttribute("uzenetid",parseInt(n));var RIDO=document.createElement("div");RIDO.className="recept_ido";RIDO.innerHTML=UZENETEK[parseInt(n)].uzenet.replace(/<(?:.|\n)*?>/gm, '');RIDO.style.fontSize=RIdoH+"px";RIDO.style.marginTop=RIdoT+"px";RIDO.style.whiteSpace="nowrap";RIDO.style.width="60%";RIDO.style.overflow="hidden";RKDO.appendChild(RKF);RCSI.appendChild(RKDO);RCSI.appendChild(RNEV);RCSI.appendChild(RIDO);PS.appendChild(RCSI);Hammer(RCSI).on("tap", function(event){Uzenet_mutat(this.getAttribute("uzenetid"));});Hammer(RCSI,{tap_max_touchtime : 300, tap_max_distance  : 5});}}
 window.localStorage.setItem("ilekvar_uzenetek",JSON.stringify(UZENETEK));var MD=document.getElementById("message");MD.innerHTML=UnreadNr;MD.style.display=(UnreadNr==0?"none":"block");if (ShowNr<SorokSzamaMin)
 {for (var m=1;m<=SorokSzamaMin-ShowNr;m++)
 {Sor(PS,null);}}
@@ -415,11 +416,10 @@ function escapeHtml(str){if (typeof(str)=="string"){str=str.replace(/&gt;/ig, ">
 return str;}
 function Uzenet_mutat(uzenetid)
 {console.log("UZENET="+UZENETEK[uzenetid].uzenet);document.getElementById("UNEV").innerHTML=UZENETEK[uzenetid].cim;document.getElementById("UIDO").innerHTML=UZENETEK[uzenetid].ido;var HREF1="";var HREF2="";var KEP="";if (UZENETEK[uzenetid].kep!=""){KEP="<br><img style='width:100%;margin-top:5%;' src='"+UZENETEK[uzenetid].kep+"'/>";};if (UZENETEK[uzenetid].link !==""){HREF1="<a href='"+UZENETEK[uzenetid].link+"' target='_blank'>";HREF2="</a>";}
-MSG_CIM=UZENETEK[uzenetid].cim;MST_TXT=UZENETEK[uzenetid].uzenet;MSG_IMG=SZERVER+"/app_ilekvar/uzenetek/"+UZENETEK[uzenetid].img;MSG_KEP=UZENETEK[uzenetid].kep;var MEGOSZTAS='<div id="MEGOSZTAS" style="display:inline-flex;margin-bottom:15%;">\
+MSG_CIM=UZENETEK[uzenetid].cim;MSG_TXT=UZENETEK[uzenetid].uzenet;MSG_IMG=SZERVER+"/app_ilekvar/uzenetek/"+UZENETEK[uzenetid].img;MSG_KEP=UZENETEK[uzenetid].kep;var MEGOSZTAS='<div id="MEGOSZTAS" style="display:inline-flex;margin-bottom:15%;">\
 <img id="ShareIkon" class="shareikon"src="img/share.png" ontouchstart=\"Megoszt2(0);\"/>\
 <img id="FacebookIkon2" class="shareikon"src="img/facebook.png"ontouchstart=\"Megoszt2(1);\"/>\
 <img id="TwitterIkon2"class="shareikon"src="img/twitter.png"ontouchstart=\"Megoszt2(2);\"/>\
-</div>';document.getElementById("SCROLLER13").innerHTML=HREF1+UZENETEK[uzenetid].uzenet+KEP+HREF2+MEGOSZTAS;UZENETEK[uzenetid].uj="";window.localStorage.setItem("ilekvar_read_"+uzenetid,"x")
-Oldal(13,0);Refresh_uzenetek();ScrollRefresh(13);}
+</div>';document.getElementById("SCROLLER13").innerHTML=HREF1+UZENETEK[uzenetid].uzenet+KEP+HREF2+MEGOSZTAS;window.localStorage.setItem("ilekvar_read_"+uzenetid,UZENETEK[uzenetid].id.toLowerCase());Oldal(13,0);Refresh_uzenetek();ScrollRefresh(13);}
 function Uzenet_delete_show(uzenetid)
 {document.getElementById("UDEL"+uzenetid).style.display="block";}

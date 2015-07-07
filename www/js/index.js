@@ -217,8 +217,8 @@ user_message_prompt:'Ossza meg ismerőseivel ezt a receptet!'
 };FB.ui(params,  function(response){if(response){facebook.Dialog.remove(facebook.Dialog._active);}});break;case 2: 
 window.plugins.socialsharing.shareViaTwitter('Az én lekvárom :'+ReceptNEV+'\n', SZERVER+'/app_ilekvar/media/'+ReceptIMG, 'http://azenlekvarom.hu');break;}}
 function Megoszt2(MODE)
-{var MSG_HTML="<html><head><meta http-equiv='Content-Type'  content='text/html charset=UTF-8' /></head>";MSG_HTML+="<body style='font:12px Arial;'>";MSG_HTML+=MSG;if (KEP){MSG_HTML+="<img src='"+KEP+"'/><br><br>";}
-MSG_HTML+="</body></html>";var MSG_FB=MSG;switch (MODE)
+{var MSG_HTML="<html><head><meta http-equiv='Content-Type'  content='text/html charset=UTF-8' /></head>";MSG_HTML+="<body style='font:12px Arial;'>";MSG_HTML+=MSG_TXT;if (MSG_KEP && MODE==0){MSG_HTML+="<img src='"+MSG_KEP+"'/><br><br>";}
+MSG_HTML+="</body></html>";var MSG_FB=MSG_TXT;switch (MODE)
 {case 0:
 window.plugins.EmailComposer.showEmailComposerWithCallback(null,CIM,MSG_HTML+"<br>Az én lekvárom",[],[],[],true,[],[]);break;case 1: 
 facebookConnectPlugin.getLoginStatus( 
@@ -416,9 +416,9 @@ return str;}
 function Uzenet_mutat(uzenetid)
 {console.log("UZENET="+UZENETEK[uzenetid].uzenet);document.getElementById("UNEV").innerHTML=UZENETEK[uzenetid].cim;document.getElementById("UIDO").innerHTML=UZENETEK[uzenetid].ido;var HREF1="";var HREF2="";var KEP="";if (UZENETEK[uzenetid].kep!=""){KEP="<br><img style='width:100%;margin-top:5%;' src='"+UZENETEK[uzenetid].kep+"'/>";};if (UZENETEK[uzenetid].link !==""){HREF1="<a href='"+UZENETEK[uzenetid].link+"' target='_blank'>";HREF2="</a>";}
 MSG_CIM=UZENETEK[uzenetid].cim;MST_TXT=UZENETEK[uzenetid].uzenet;MSG_IMG=SZERVER+"/app_ilekvar/uzenetek/"+UZENETEK[uzenetid].img;MSG_KEP=UZENETEK[uzenetid].kep;var MEGOSZTAS='<div id="MEGOSZTAS" style="display:inline-flex;margin-bottom:15%;">\
-<img id="ShareIkon" class="shareikon"src="img/share.png" ontouchstart=\"Megoszt2(0,\''+UZENETEK[uzenetid].cim+'\',\''+UZENETEK[uzenetid].uzenet.replace(/<(?:.|\n)*?>/gm, '')+'\',\''+UZENETEK[uzenetid].img+'\',\''+UZENETEK[uzenetid].kep+'\');\"/>\
-<img id="FacebookIkon2" class="shareikon"src="img/facebook.png"ontouchstart=\"Megoszt2(1,\''+UZENETEK[uzenetid].cim+'\',\''+UZENETEK[uzenetid].uzenet.replace(/<(?:.|\n)*?>/gm, '')+'\',\''+UZENETEK[uzenetid].img+'\',\''+UZENETEK[uzenetid].kep+'\');\"/>\
-<img id="TwitterIkon2"class="shareikon"src="img/twitter.png"ontouchstart=\'Megoszt2(2,\''+UZENETEK[uzenetid].cim+'\',\''+UZENETEK[uzenetid].uzenet.replace(/<(?:.|\n)*?>/gm, '')+'\',\''+UZENETEK[uzenetid].img+'\',\''+UZENETEK[uzenetid].kep+'\');\"/>\
+<img id="ShareIkon" class="shareikon"src="img/share.png" ontouchstart=\"Megoszt2(0);\"/>\
+<img id="FacebookIkon2" class="shareikon"src="img/facebook.png"ontouchstart=\"Megoszt2(1);\"/>\
+<img id="TwitterIkon2"class="shareikon"src="img/twitter.png"ontouchstart=\'Megoszt2(2);\"/>\
 </div>';document.getElementById("SCROLLER13").innerHTML=HREF1+UZENETEK[uzenetid].uzenet+KEP+HREF2+MEGOSZTAS;UZENETEK[uzenetid].uj="";window.localStorage.setItem("ilekvar_read_"+uzenetid,"x")
 Oldal(13,0);Refresh_uzenetek();ScrollRefresh(13);}
 function Uzenet_delete_show(uzenetid)

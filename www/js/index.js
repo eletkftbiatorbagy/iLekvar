@@ -220,7 +220,7 @@ function Megoszt2(MODE)
 {var MSG_HTML="<html><head><meta http-equiv='Content-Type'  content='text/html charset=UTF-8' /></head>";MSG_HTML+="<body style='font:12px Arial;'>";MSG_HTML+=MSG_TXT;if (MSG_KEP && MODE==0){MSG_HTML+="<img src='"+MSG_KEP+"'/><br><br>";}
 MSG_HTML+="</body></html>";var MSG_FB=MSG_TXT;switch (MODE)
 {case 0:
-window.plugins.EmailComposer.showEmailComposerWithCallback(null,CIM,MSG_HTML+"<br>Az én lekvárom",[],[],[],true,[],[]);break;case 1: 
+window.plugins.EmailComposer.showEmailComposerWithCallback(null,MSG_CIM,MSG_HTML+"<br>Az én lekvárom",[],[],[],true,[],[]);break;case 1: 
 facebookConnectPlugin.getLoginStatus( 
 fbLoginSuccess, 
 fbLogin
@@ -234,8 +234,8 @@ function (error){console.log(""+error);}
 };var fbLoginSuccess=function (userData){var options={"method":"feed", 
 "app_id":"542071045911013",
 "link":"http://azenlekvarom.hu",
-"description": MSG_CIM,
-"caption" : MSG_TXT,
+"caption": MSG_CIM,
+"description" : MSG_TXT,
 "picture": MSG_IMG
 };facebookConnectPlugin.showDialog(
 options,
@@ -418,7 +418,7 @@ function Uzenet_mutat(uzenetid)
 MSG_CIM=UZENETEK[uzenetid].cim;MST_TXT=UZENETEK[uzenetid].uzenet;MSG_IMG=SZERVER+"/app_ilekvar/uzenetek/"+UZENETEK[uzenetid].img;MSG_KEP=UZENETEK[uzenetid].kep;var MEGOSZTAS='<div id="MEGOSZTAS" style="display:inline-flex;margin-bottom:15%;">\
 <img id="ShareIkon" class="shareikon"src="img/share.png" ontouchstart=\"Megoszt2(0);\"/>\
 <img id="FacebookIkon2" class="shareikon"src="img/facebook.png"ontouchstart=\"Megoszt2(1);\"/>\
-<img id="TwitterIkon2"class="shareikon"src="img/twitter.png"ontouchstart=\'Megoszt2(2);\"/>\
+<img id="TwitterIkon2"class="shareikon"src="img/twitter.png"ontouchstart=\"Megoszt2(2);\"/>\
 </div>';document.getElementById("SCROLLER13").innerHTML=HREF1+UZENETEK[uzenetid].uzenet+KEP+HREF2+MEGOSZTAS;UZENETEK[uzenetid].uj="";window.localStorage.setItem("ilekvar_read_"+uzenetid,"x")
 Oldal(13,0);Refresh_uzenetek();ScrollRefresh(13);}
 function Uzenet_delete_show(uzenetid)

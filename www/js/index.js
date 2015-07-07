@@ -216,16 +216,16 @@ actions: [{name:'Az én lekvárom', link: LINK} ],
 user_message_prompt:'Ossza meg ismerőseivel ezt a receptet!'
 };FB.ui(params,  function(response){if(response){facebook.Dialog.remove(facebook.Dialog._active);}});break;case 2: 
 window.plugins.socialsharing.shareViaTwitter('Az én lekvárom :'+ReceptNEV+'\n', SZERVER+'/app_ilekvar/media/'+ReceptIMG, 'http://azenlekvarom.hu');break;}}
-function Megoszt2(MODE,CIM,MSG,IMG,KEP)
+function Megoszt2(MODE)
 {var MSG_HTML="<html><head><meta http-equiv='Content-Type'  content='text/html charset=UTF-8' /></head>";MSG_HTML+="<body style='font:12px Arial;'>";MSG_HTML+=MSG;if (KEP){MSG_HTML+="<img src='"+KEP+"'/><br><br>";}
 MSG_HTML+="</body></html>";var MSG_FB=MSG;switch (MODE)
 {case 0:
-window.plugins.EmailComposer.showEmailComposerWithCallback(null,"Az én lekvárom : "+CIM,MSG_HTML,[],[],[],true,[],[]);break;case 1: 
+window.plugins.EmailComposer.showEmailComposerWithCallback(null,CIM,MSG_HTML+"<br>Az én lekvárom",[],[],[],true,[],[]);break;case 1: 
 facebookConnectPlugin.getLoginStatus( 
 fbLoginSuccess, 
 fbLogin
 );break;case 2: 
-window.plugins.socialsharing.shareViaTwitter('Az én lekvárom :'+CIM+'\n'+MSG, "data:"+KEP, 'http://azenlekvarom.hu');break;}}
+window.plugins.socialsharing.shareViaTwitter('Az én lekvárom :'+MSG_CIM+'\n'+MSG_TXT, MSG_IMG, 'http://azenlekvarom.hu');break;}}
 var fbLogin=function(){facebookConnectPlugin.login(
 ["public_profile"], 
 fbLoginSuccess,
@@ -415,7 +415,7 @@ function escapeHtml(str){if (typeof(str)=="string"){str=str.replace(/&gt;/ig, ">
 return str;}
 function Uzenet_mutat(uzenetid)
 {console.log("UZENET="+UZENETEK[uzenetid].uzenet);document.getElementById("UNEV").innerHTML=UZENETEK[uzenetid].cim;document.getElementById("UIDO").innerHTML=UZENETEK[uzenetid].ido;var HREF1="";var HREF2="";var KEP="";if (UZENETEK[uzenetid].kep!=""){KEP="<br><img style='width:100%;margin-top:5%;' src='"+UZENETEK[uzenetid].kep+"'/>";};if (UZENETEK[uzenetid].link !==""){HREF1="<a href='"+UZENETEK[uzenetid].link+"' target='_blank'>";HREF2="</a>";}
-MSG_CIM=UZENETEK[uzenetid].cim;MST_TXT=UZENETEK[uzenetid].uzenet;MSG_IMG=UZENETEK[uzenetid].img;MSG_KEP=UZENETEK[uzenetid].kep;var MEGOSZTAS='<div id="MEGOSZTAS" style="display:inline-flex;margin-bottom:15%;">\
+MSG_CIM=UZENETEK[uzenetid].cim;MST_TXT=UZENETEK[uzenetid].uzenet;MSG_IMG=SZERVER+"/app_ilekvar/uzenetek/"+UZENETEK[uzenetid].img;MSG_KEP=UZENETEK[uzenetid].kep;var MEGOSZTAS='<div id="MEGOSZTAS" style="display:inline-flex;margin-bottom:15%;">\
 <img id="ShareIkon" class="shareikon"src="img/share.png" ontouchstart=\"Megoszt2(0,\''+UZENETEK[uzenetid].cim+'\',\''+UZENETEK[uzenetid].uzenet.replace(/<(?:.|\n)*?>/gm, '')+'\',\''+UZENETEK[uzenetid].img+'\',\''+UZENETEK[uzenetid].kep+'\');\"/>\
 <img id="FacebookIkon2" class="shareikon"src="img/facebook.png"ontouchstart=\"Megoszt2(1,\''+UZENETEK[uzenetid].cim+'\',\''+UZENETEK[uzenetid].uzenet.replace(/<(?:.|\n)*?>/gm, '')+'\',\''+UZENETEK[uzenetid].img+'\',\''+UZENETEK[uzenetid].kep+'\');\"/>\
 <img id="TwitterIkon2"class="shareikon"src="img/twitter.png"ontouchstart=\'Megoszt2(2,\''+UZENETEK[uzenetid].cim+'\',\''+UZENETEK[uzenetid].uzenet.replace(/<(?:.|\n)*?>/gm, '')+'\',\''+UZENETEK[uzenetid].img+'\',\''+UZENETEK[uzenetid].kep+'\');\"/>\

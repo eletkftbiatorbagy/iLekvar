@@ -233,8 +233,8 @@ function (error){console.log(""+error);}
 "caption": "Az én lekvárom",
 "description" : MSG_FB,
 "picture": SZERVER+'/app_ilekvar/media/'+ReceptIMG,
-actions: [{name:'Az én lekvárom', link: LINK} ],
-user_message_prompt:'Ossza meg ismerőseivel ezt a receptet!'
+"actions": [{name:'Az én lekvárom', link: LINK} ],
+"user_message_prompt": "Ossza meg ismerőseivel ezt a receptet!"
 };facebookConnectPlugin.showDialog(
 options,
 function (result){console.log("Posted. "+JSON.stringify(result));},
@@ -246,6 +246,7 @@ function (error){console.log(""+error);}
 )
 };var fbLoginSuccess2=function (userData){var options={"method":"feed", 
 "app_id":"542071045911013",
+"name":"iLekvár",
 "link":APP_HTTP,
 "caption": MSG_CIM,
 "description" : MSG_TXT,

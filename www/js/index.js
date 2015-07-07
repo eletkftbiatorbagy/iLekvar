@@ -221,17 +221,25 @@ function Megoszt2(MODE,CIM,MSG,KEP)
 MSG_HTML+="</body></html>";var MSG_FB=MSG;switch (MODE)
 {case 0:
 window.plugins.EmailComposer.showEmailComposerWithCallback(null,"Az én lekvárom : "+CIM,MSG_HTML,[],[],[],true,[],[]);break;case 1: 
-window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(CIM, KEP, "http://azenlekvarom.hu", MSG, function(){console.log('share ok')}, function(errormsg){alert(errormsg)});break;case 2: 
+facebookConnectPlugin.getLoginStatus( 
+fbLoginSuccess, 
+fbLogin
+);break;case 2: 
 window.plugins.socialsharing.shareViaTwitter('Az én lekvárom :'+CIM+'\n', KEP, 'http://azenlekvarom.hu');break;}}
 var fbLogin=function(){facebookConnectPlugin.login(
 ["public_profile"], 
 fbLoginSuccess,
 function (error){console.log(""+error);} 
 )
-};var fbLoginSuccess_OLD=function (userData){console.log("UserInfo: "+JSON.stringify(userData));facebookConnectPlugin.getLoginStatus(
-function (status){console.log("current status: "+JSON.stringify(status));var options={method:"share"};facebookConnectPlugin.showDialog(options,
+};var fbLoginSuccess=function (userData){var options={method:"feed", 
+link:"http://azenlekvarom.hu",
+caption: MSG_CIM,
+description : MSG_TXT,
+picture: MSG_IMG
+};facebookConnectPlugin.showDialog(
+options,
 function (result){console.log("Posted. "+JSON.stringify(result));},
-function (e){alert("Failed: "+e);});}
+function (e){alert("Failed: "+e);} 
 );};var oc_timer;window.addEventListener("orientationchange", function(){clearTimeout(oc_timer);var oc_delay=0;if (device && device.platform=="Android"){oc_delay=500;}
 oc_timer=setTimeout(OrientationReCalc,oc_delay);}, false);var firstOrientationRecalc=true;function OrientationReCalc()
 {

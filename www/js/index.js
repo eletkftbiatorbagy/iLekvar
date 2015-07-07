@@ -15,7 +15,7 @@ Refresh_uzenetek();callback3=function(response){Message_update('message_data',re
 document.addEventListener("backbutton", Vissza, false);var RNEV=document.getElementById("RNEV");RNEV.style.fontSize=RNevH+"px";RNEV.style.lineHeight=RNevLH+"px";var RIDO=document.getElementById("RIDO");RIDO.style.fontSize=RIdoH+"px";var RCSI=document.getElementById("RSIPKA");RCSI.style.height=parseInt(RCsiH)+"px";Ertekeles_letolt();for (var m=1;m<=7;m++)
 {Sor(document.getElementById("POROND0"),null,null);}
 var K=document.getElementById("KERES");K.parentNode.style.height=Szazalek * 8+"px";K.focus();K.select();document.getElementById("KERES_GOMB").style.height=Szazalek * 10+"px";document.getElementById("IDOVONAL1").style.height=Szazalek * 22+"px";document.getElementById("IDOVONAL2").style.height=Szazalek * 22+"px";document.getElementById("SKALA1").style.height=Szazalek * 6+"px";document.getElementById("SKALA2").style.height=Szazalek * 6+"px";setTimeout(function(){console.log("--- Reklam indul");Reklam();},500);if (window.device){setTimeout(function(){navigator.splashscreen.hide();console.log("SplashScreen KIKAPCS");}, 3500);}
-setTimeout( function(){PS1=new iScroll('POROND1',{hScrollbar: false, vScrollbar: false, hScroll: false});PS2=new iScroll('POROND2',{hScrollbar: false, vScrollbar: false, hScroll: false});PS3=new iScroll('POROND3',{hScrollbar: false, vScrollbar: false, hScroll: false});PS4=new iScroll('POROND4',{hScrollbar: false, vScrollbar: false, hScroll: false});PS6=new iScroll('POROND6',{hScrollbar: false, vScrollbar: false, hScroll: false});PS8=new iScroll('POROND8',{hScrollbar: false, vScrollbar: false, hScroll: false});PS10=new iScroll('POROND10',{hScrollbar: false, vScrollbar: false, hScroll: false});PS11=new iScroll('POROND11',{hScrollbar: false, vScrollbar: false, hScroll: false});PS12=new iScroll('POROND12',{hScrollbar: false, vScrollbar: false, hScroll: false});PS13=new iScroll('POROND13',{hScrollbar: false, vScrollbar: false, hScroll: false});RM1=new iScroll('RECEPT_MEZO1',{hScrollbar: false, vScrollbar: false, hScroll: false});RM2=new iScroll('HOZZAVALOK',{hScrollbar: false, vScrollbar: false, hScroll: false});RM3=new iScroll('RECEPT_MEZO3',{hScrollbar: false, vScrollbar: false, hScroll: false});},0);if (window.device){FB.init({appId: "542071045911013", nativeInterface: CDV.FB, useCachedDialogs: false});}}};var KategoriaID=Array();var KategoriaNEV=Array();var Receptek=Array();var LastPage=[1];var LastLablec=[1];var LastRecept=[0];var LastKategoria=[];var LastKat=0;function Oldal(oldal,lablec)
+setTimeout( function(){PS1=new iScroll('POROND1',{hScrollbar: false, vScrollbar: false, hScroll: false});PS2=new iScroll('POROND2',{hScrollbar: false, vScrollbar: false, hScroll: false});PS3=new iScroll('POROND3',{hScrollbar: false, vScrollbar: false, hScroll: false});PS4=new iScroll('POROND4',{hScrollbar: false, vScrollbar: false, hScroll: false});PS6=new iScroll('POROND6',{hScrollbar: false, vScrollbar: false, hScroll: false});PS8=new iScroll('POROND8',{hScrollbar: false, vScrollbar: false, hScroll: false});PS10=new iScroll('POROND10',{hScrollbar: false, vScrollbar: false, hScroll: false});PS11=new iScroll('POROND11',{hScrollbar: false, vScrollbar: false, hScroll: false});PS12=new iScroll('POROND12',{hScrollbar: false, vScrollbar: false, hScroll: false});PS13=new iScroll('POROND13',{hScrollbar: false, vScrollbar: false, hScroll: false});RM1=new iScroll('RECEPT_MEZO1',{hScrollbar: false, vScrollbar: false, hScroll: false});RM2=new iScroll('HOZZAVALOK',{hScrollbar: false, vScrollbar: false, hScroll: false});RM3=new iScroll('RECEPT_MEZO3',{hScrollbar: false, vScrollbar: false, hScroll: false});},0);}};var KategoriaID=Array();var KategoriaNEV=Array();var Receptek=Array();var LastPage=[1];var LastLablec=[1];var LastRecept=[0];var LastKategoria=[];var LastKat=0;function Oldal(oldal,lablec)
 {document.getElementById("Notification").style.display="none";document.getElementById("VIDEO").innerHTML="";if (!oldal){return;}
 if (oldal<0)        
 {oldal=Math.abs(oldal);}
@@ -221,17 +221,21 @@ function Megoszt2(MODE,CIM,MSG,KEP)
 MSG_HTML+="</body></html>";var MSG_FB=MSG;switch (MODE)
 {case 0:
 window.plugins.EmailComposer.showEmailComposerWithCallback(null,"Az én lekvárom : "+CIM,MSG_HTML,[],[],[],true,[],[]);break;case 1: 
-var LINK="http://azenlekvarom.hu";var params={method:'feed',
-name: CIM,
-caption:'Az én lekvárom',
-description: MSG_FB,
-link:'http://azenlekvarom.hu',
-picture: KEP,
-actions: [{name:'Az én lekvárom', link: LINK} ],
-user_message_prompt:'Ossza meg ismerőseivel ezt hírt!'
-};FB.ui(params,  function(response){if(response){facebook.Dialog.remove(facebook.Dialog._active);}});break;case 2: 
+facebookConnectPlugin.getLoginStatus( 
+fbLoginSuccess, 
+fbLogin
+);break;case 2: 
 window.plugins.socialsharing.shareViaTwitter('Az én lekvárom :'+CIM+'\n', KEP, 'http://azenlekvarom.hu');break;}}
-var oc_timer;window.addEventListener("orientationchange", function(){clearTimeout(oc_timer);var oc_delay=0;if (device && device.platform=="Android"){oc_delay=500;}
+var fbLogin=function(){facebookConnectPlugin.login(
+["basic_info"], 
+fbLoginSuccess,
+function (error){console.log(""+error);} 
+)
+};var fbLoginSuccess=function (userData){console.log("UserInfo: "+JSON.stringify(userData));facebookConnectPlugin.getLoginStatus(
+function (status){console.log("current status: "+JSON.stringify(status));var options={method:"feed"};facebookConnectPlugin.showDialog(options,
+function (result){console.log("Posted. "+JSON.stringify(result));},
+function (e){alert("Failed: "+e);});}
+);};var oc_timer;window.addEventListener("orientationchange", function(){clearTimeout(oc_timer);var oc_delay=0;if (device && device.platform=="Android"){oc_delay=500;}
 oc_timer=setTimeout(OrientationReCalc,oc_delay);}, false);var firstOrientationRecalc=true;function OrientationReCalc()
 {
 var PORTRAIT=true;if (window.device)
@@ -408,7 +412,7 @@ function Uzenet_mutat(uzenetid)
 var MEGOSZTAS='<div id="MEGOSZTAS" style="display:inline-flex;margin-bottom:15%;">\
 <img id="ShareIkon" class="shareikon"src="img/share.png" ontouchstart=\"Megoszt2(0,\''+UZENETEK[uzenetid].cim+'\',\''+UZENETEK[uzenetid].uzenet.replace(/<(?:.|\n)*?>/gm, '')+'\',\''+UZENETEK[uzenetid].kep+'\');\"/>\
 <img id="FacebookIkon2" class="shareikon"src="img/facebook.png"ontouchstart=\"Megoszt2(1,\''+UZENETEK[uzenetid].cim+'\',\''+UZENETEK[uzenetid].uzenet.replace(/<(?:.|\n)*?>/gm, '')+'\',\''+UZENETEK[uzenetid].kep+'\');\"/>\
-<img id="TwitterIkon2"class="shareikon"src="img/twitter.png"ontouchstart=\'Megoszt2(2)\'/>\
+<img id="TwitterIkon2"class="shareikon"src="img/twitter.png"ontouchstart=\'Megoszt2(2,\''+UZENETEK[uzenetid].cim+'\',\''+UZENETEK[uzenetid].uzenet.replace(/<(?:.|\n)*?>/gm, '')+'\',\''+UZENETEK[uzenetid].kep+'\');\"/>\
 </div>';document.getElementById("SCROLLER13").innerHTML=HREF1+UZENETEK[uzenetid].uzenet+KEP+HREF2+MEGOSZTAS;UZENETEK[uzenetid].uj="";window.localStorage.setItem("ilekvar_read_"+uzenetid,"x")
 Oldal(13,0);Refresh_uzenetek();ScrollRefresh(13);}
 function Uzenet_delete_show(uzenetid)

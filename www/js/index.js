@@ -232,9 +232,7 @@ function (error){console.log(""+error);}
 "link": APP_HTTP,
 "caption": "Az én lekvárom",
 "description" : MSG_FB,
-"picture": SZERVER+'/app_ilekvar/media/'+ReceptIMG,
-"actions": [{name:'Az én lekvárom', link: LINK} ],
-"user_message_prompt": "Ossza meg ismerőseivel ezt a receptet!"
+"picture": SZERVER+'/app_ilekvar/media/'+ReceptIMG
 };facebookConnectPlugin.showDialog(
 options,
 function (result){console.log("Posted. "+JSON.stringify(result));},

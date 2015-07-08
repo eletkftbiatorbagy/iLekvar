@@ -227,7 +227,7 @@ var fbLogin=function(){facebookConnectPlugin.login(
 fbLoginSuccess,
 function (error){console.log(""+error);} 
 )
-};var fbLoginSuccess=function (userData){var options={"method":"feed", 
+};var fbLoginSuccess=function (userData){var options={"method":"share", 
 "app_id":"542071045911013",
 "name": ReceptNEV,
 "link": APP_HTTP,
@@ -243,7 +243,7 @@ function (e){console.log("FB Failed: "+e);}
 fbLoginSuccess2,
 function (error){console.log(""+error);} 
 )
-};var fbLoginSuccess2=function (userData){var options={"method":"feed", 
+};var fbLoginSuccess2=function (userData){var options={"method":"share", 
 "app_id":"542071045911013",
 "caption":APP_NAME+" mobil alkalmazás",
 "link":APP_HTTP,

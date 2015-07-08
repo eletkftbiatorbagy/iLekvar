@@ -52,8 +52,8 @@ function ReceptBeolvasas(oldal,KAT,SEARCH)
 {CSIK.src="img/fejlec6"+Math.abs(KAT)+".jpg";}
 else
 {CSIK.src="img/fejlec2t.jpg";}
-var PS=document.getElementById("SCROLLER"+oldal);if (PS){PS.innerHTML="<div id='POROND_TERKOZ"+oldal+"' class='porond_terkoz' style='height:"+parseInt(window.innerHeight*0.0001)+"px'></div>";if (KAT==-1)
-{Sor(PS,null);Sor(PS,null);setTimeout( function(){var PSek=document.querySelector("#SCROLLER3").querySelectorAll(".recept_csik");var QS1=PSek[0];Hammer(QS1).on("tap", function(event){top5(2);});Hammer(QS1,{tap_max_touchtime : 300, tap_max_distance  : 5});var RKDO=document.createElement("div");RKDO.className="recept_kisfoto_keret";RKDO.style.height=parseInt(RCsikH*0.82)+"px";RKDO.style.width=parseInt(RCsikH*0.82)+"px";RKDO.style.marginTop=parseInt(RCsikH*0.05)+"px";RKDO.style.border="none";var RKF=document.createElement("img");RKF.className="recept_kisfoto";RKF.setAttribute("src","img/sziv1.png");var RNEV=document.createElement("div");RNEV.innerHTML="Legnépszerűbb receptek";RNEV.className="recept_nev";RNEV.style.fontSize=RNevH+"px";RNEV.style.height=RNevLH+"px";RNEV.style.lineHeight=RNevLH*1.5+"px";RNEV.style.color="#B64E06";RKDO.appendChild(RKF);QS1.appendChild(RKDO);QS1.appendChild(RNEV);var QS2=PSek[1];Hammer(QS2).on("tap", function(event){top5(1);});Hammer(QS2,{tap_max_touchtime : 300, tap_max_distance  : 5});var RKDO2=document.createElement("div");RKDO2.className="recept_kisfoto_keret";RKDO2.style.height=parseInt(RCsikH*0.82)+"px";RKDO2.style.width=parseInt(RCsikH*0.82)+"px";RKDO2.style.marginTop=parseInt(RCsikH*0.05)+"px";RKDO2.style.border="none";var RKF2=document.createElement("img");RKF2.className="recept_kisfoto";RKF2.setAttribute("src","img/sziv1.png");var RNEV2=document.createElement("div");RNEV2.innerHTML="Mások kedvenc receptjei";RNEV2.className="recept_nev";RNEV2.style.fontSize=RNevH+"px";RNEV2.style.height=RNevLH+"px";RNEV2.style.lineHeight=RNevLH*1.5+"px";RNEV2.style.color="#B64E06";RKDO2.appendChild(RKF2);QS2.appendChild(RKDO2);QS2.appendChild(RNEV2);},100);}}
+var PS=document.getElementById("SCROLLER"+oldal);if (PS){PS.innerHTML="<div id='POROND_TERKOZ"+oldal+"' class='porond_terkoz' style='height:"+parseInt(window.innerHeight*0.0001)+"px'></div>";var SorokSzamaMinKorrekcio=0;if (KAT==-1)
+{SorokSzamaMinKorrekcio=2;Sor(PS,null);Sor(PS,null);setTimeout( function(){var PSek=document.querySelector("#SCROLLER3").querySelectorAll(".recept_csik");var QS1=PSek[0];Hammer(QS1).on("tap", function(event){top5(2);});Hammer(QS1,{tap_max_touchtime : 300, tap_max_distance  : 5});var RKDO=document.createElement("div");RKDO.className="recept_kisfoto_keret";RKDO.style.height=parseInt(RCsikH*0.82)+"px";RKDO.style.width=parseInt(RCsikH*0.82)+"px";RKDO.style.marginTop=parseInt(RCsikH*0.05)+"px";RKDO.style.border="none";var RKF=document.createElement("img");RKF.className="recept_kisfoto";RKF.setAttribute("src","img/sziv1.png");var RNEV=document.createElement("div");RNEV.innerHTML="Legnépszerűbb receptek";RNEV.className="recept_nev";RNEV.style.fontSize=RNevH+"px";RNEV.style.height=RNevLH+"px";RNEV.style.lineHeight=RNevLH*1.5+"px";RNEV.style.color="#B64E06";RKDO.appendChild(RKF);QS1.appendChild(RKDO);QS1.appendChild(RNEV);var QS2=PSek[1];Hammer(QS2).on("tap", function(event){top5(1);});Hammer(QS2,{tap_max_touchtime : 300, tap_max_distance  : 5});var RKDO2=document.createElement("div");RKDO2.className="recept_kisfoto_keret";RKDO2.style.height=parseInt(RCsikH*0.82)+"px";RKDO2.style.width=parseInt(RCsikH*0.82)+"px";RKDO2.style.marginTop=parseInt(RCsikH*0.05)+"px";RKDO2.style.border="none";var RKF2=document.createElement("img");RKF2.className="recept_kisfoto";RKF2.setAttribute("src","img/sziv1.png");var RNEV2=document.createElement("div");RNEV2.innerHTML="Mások kedvenc receptjei";RNEV2.className="recept_nev";RNEV2.style.fontSize=RNevH+"px";RNEV2.style.height=RNevLH+"px";RNEV2.style.lineHeight=RNevLH*1.5+"px";RNEV2.style.color="#B64E06";RKDO2.appendChild(RKF2);QS2.appendChild(RKDO2);QS2.appendChild(RNEV2);},100);}}
 if (SEARCH=="*"){SEARCH=null;}
 if (SEARCH){ SEARCH=SEARCH.trim();}
 if (KAT>0){LastKat=KAT;LastKategoria.push(KAT);}
@@ -86,7 +86,7 @@ var FILMEK=0;if (PS && KAT>0)
 {Sor(PS,null,Video[v][0]+Video[v][2]);}}}
 if (PS)
 {if (parseInt(EREDMENY+FILMEK)<SorokSzamaMin)
-{for (var m=1;m<=SorokSzamaMin-EREDMENY-FILMEK;m++)
+{for (var m=1;m<=SorokSzamaMin-EREDMENY-FILMEK-SorokSzamaMinKorrekcio;m++)
 {Sor(PS,null);}}
 Sor(PS,null);}
 ScrollRefresh(oldal);PS6.scrollTo(0,0);}
@@ -331,7 +331,7 @@ if (mode==2){Oldal(11,0);MemItem="ilekvar_top5_bestof";}
 var t5=window.localStorage.getItem(MemItem);if (!t5) 
 {document.getElementById("NotificationMessage").innerHTML="A funkció használatához internetkapcsolatra van szükség.";document.getElementById("Notification").setAttribute("onclick","this.style.display='none';");document.getElementById("Notification").style.display="block";return;}
 var oldal=parseInt(9+mode);var PS=document.getElementById("SCROLLER"+oldal);if (PS){PS.innerHTML="<div id='POROND_TERKOZ"+oldal+"' class='porond_terkoz' style='height:"+parseInt(window.innerHeight*0.0001)+"px'></div>";}
-var I=t5.split(",");for (var n=0;n<7;n++)
+var I=t5.split(",");for (var n=0;n < SorokSzamaMin;n++)
 {var D=null;if (I[n]){D=I[n].split("|");}
 if (D && D[0]!="0")
 {var Recept=Receptek[ReceptNum(D[0])].split("|");Sor(PS,Recept);}

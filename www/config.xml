@@ -9,7 +9,7 @@
     </author>
     <content src="index.html" />
     <feature name="http://api.phonegap.com/1.0/device" />
-    <preference name="phonegap-version" value="cli-5.1.1" />
+    <preference name="phonegap-version" value="3.6.3" />
 	<gap:platform name="ios" />
 	<gap:platform name="android" />
     
@@ -27,7 +27,7 @@
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="5" />
-    <preference name="android-targetSdkVersion" value="21" />
+    <preference name="android-targetSdkVersion" value="17" />
     <preference name="android-installLocation" value="auto" />
     <preference name="HideKeyboardFormAccessoryBar" value="true" />
     <preference name="DisallowOverscroll" value="true" />
@@ -104,6 +104,7 @@
     
     <gap:plugin name="nl.x-services.plugins.insomnia" version="4.0.1" />
     <gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" version="1.2.0" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
     
     <access origin="*" />
 </widget>
